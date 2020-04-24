@@ -11,13 +11,13 @@ export default function SimpleContainer() {
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="sm">
-        <ButtonAppBar />
-        <BasicTextFields />
-        <SimpleList />
         <Typography
           component="div"
           style={{ backgroundColor: "#cfe8fc", height: "80vh" }}
         />
+        <ButtonAppBar />
+        <BasicTextFields />
+        <SimpleList />
       </Container>
     </React.Fragment>
   );
