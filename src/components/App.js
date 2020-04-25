@@ -1,14 +1,7 @@
 import React from "react";
 import SimpleContainer from "../material-ui/containerUi";
 
-export default class TodoApp extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      todoList: [],
-    };
-  }
-
+export default class App extends React.Component {
   render() {
     return (
       <div>

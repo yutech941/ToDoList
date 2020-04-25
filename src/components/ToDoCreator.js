@@ -1,4 +1,5 @@
 import React from "react";
+import BasicTextFields from "../material-ui/inputUi";
 
 export default class ToDocreator extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ export default class ToDocreator extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
   }
+
   handleChange(e) {
     this.setState({
       val: e.target.value,
@@ -19,7 +21,15 @@ export default class ToDocreator extends React.Component {
       this.setState({
         val: "",
       });
-      this.props.callBackAddList(val);
+      this.props.callBackAddTask(val);
     }
+  }
+
+  render() {
+    return (
+      <div>
+        <BasicTextFields />
+      </div>
+    );
   }
 }
