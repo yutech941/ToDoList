@@ -27,8 +27,17 @@ export default class ToDocreator extends React.Component {
 
   render() {
     return (
-      <div>
-        <BasicTextFields />
+      <div className="form">
+        <div className="inputArea">
+          <input
+            type="text"
+            className="inputText"
+            value={this.state.val}
+            onChange={this.handleChange}
+            onKeyUp={this.handleKeyUp}
+            placeholder="something todo task"
+          />
+        </div>
       </div>
     );
   }
