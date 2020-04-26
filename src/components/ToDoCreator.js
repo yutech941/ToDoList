@@ -18,6 +18,7 @@ export default class ToDocreator extends React.Component {
   }
   handleKeyUp(e) {
     if (e.KeyCode === 13 && e.shiftKey === true) {
+      const val = e.target.value;
       this.setState({
         val: "",
       });
