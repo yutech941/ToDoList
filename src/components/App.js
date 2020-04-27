@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonAppBar from "./material-ui/ButtonAppBar";
 import TodoCreator from "./material-ui/TodoCreator";
-import SimpleList from "./material-ui/SimpleList";
+import TodoList from "./material-ui/TodoList";
 
 export default class App extends React.Component {
   constructor() {
@@ -44,7 +44,7 @@ export default class App extends React.Component {
         >
           <TodoCreator callBackAddTask={this.callBackAddTask} />
 
-          <SimpleList />
+          <TodoList listdata={this.state.listdata} />
         </div>
       </div>
     );
