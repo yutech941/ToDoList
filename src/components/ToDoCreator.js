@@ -1,5 +1,5 @@
 import React from "react";
-import BasicTextFields from "../material-ui/inputUi";
+import BasicTextFields from "./material-ui/BasicTextField";
 
 export default class ToDocreator extends React.Component {
   constructor(props) {
