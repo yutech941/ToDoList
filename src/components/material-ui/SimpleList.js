@@ -44,16 +44,15 @@ export default function CheckboxList() {
             button
             onClick={handleToggle(value)}
           >
-            <ListItemIcon>
-              <Checkbox
-                edge="start"
-                checked={checked.indexOf(value) !== -1}
-                tabIndex={-1}
-                disableRipple
-                inputProps={{ "aria-labelledby": labelId }}
-              />
-            </ListItemIcon>
-            <ListItemText id={labelId} primary="" />
+            <Checkbox
+              edge="start"
+              checked={checked.indexOf(value) !== -1}
+              tabIndex={-1}
+              disableRipple
+              inputProps={{ "aria-labelledby": labelId }}
+            />
+
+            <ListItemText id={labelId} primary={`todo ${value + 1}`} />
           </ListItem>
         );
       })}
