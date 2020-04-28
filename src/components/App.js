@@ -10,7 +10,7 @@ export default class App extends React.Component {
       listdata: [
         {
           id: this.createHashId(),
-          text: "sample todo1",
+          text: "sample todo",
         },
       ],
     };
@@ -44,7 +44,9 @@ export default class App extends React.Component {
         >
           <TodoCreator callBackAddTask={this.callBackAddTask} />
 
-          <TodoList listdata={this.state.listdata} />
+          {this.state.listdata.map((todo) => (
+            <TodoList id={todo.id} text={todo.text} />
+          ))}
         </div>
       </div>
     );
