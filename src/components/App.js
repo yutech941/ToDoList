@@ -1,7 +1,7 @@
 import React from "react";
-import ButtonAppBar from "./material-ui/ButtonAppBar";
-import TodoCreator from "./material-ui/TodoCreator";
-import TodoList from "./material-ui/TodoList";
+import ButtonAppBar from ".//ButtonAppBar";
+import TodoCreator from "./TodoCreator";
+import TodoList from "./TodoList";
 
 export default class App extends React.Component {
   constructor() {
