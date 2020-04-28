@@ -35,8 +35,6 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <ButtonAppBar />
-
         <div
           style={{
             margin: "100px 500px 0 500px",
@@ -44,8 +42,10 @@ export default class App extends React.Component {
         >
           <TodoCreator callBackAddTask={this.callBackAddTask} />
 
+          <ButtonAppBar />
+
           {this.state.listdata.map((todo) => (
-            <TodoList id={todo.id} text={todo.text} />
+            <TodoList key={todo.id} text={todo.text} />
           ))}
         </div>
       </div>

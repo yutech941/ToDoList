@@ -4,9 +4,11 @@ import ListItem from "@material-ui/core/ListItem";
 
 export default class TodoList extends React.Component {
   render() {
+    const { text } = this.props;
+
     return (
       <List>
-        <ListItem>{this.props.text}</ListItem>
+        <ListItem>{text}</ListItem>
       </List>
     );
   }
