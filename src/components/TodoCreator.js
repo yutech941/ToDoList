@@ -1,5 +1,6 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 export default class TodoCreator extends React.Component {
   constructor(props) {
@@ -30,14 +31,31 @@ export default class TodoCreator extends React.Component {
 
   render() {
     return (
-      <TextField
-        id="outlined-basic"
-        label="title"
-        variant="outlined"
-        value={this.state.val}
-        onChange={this.handleChange}
-        onKeyUp={this.handleKeyUp}
-      />
+      <div>
+        <TextField
+          id="outlined-basic"
+          label="title"
+          variant="outlined"
+          value={this.state.val}
+          onChange={this.handleChange}
+          onKeyUp={this.handleKeyUp}
+        />
+
+        <TextField
+          id="outlined-full-width"
+          label="Label"
+          style={{ margin: 8 }}
+          placeholder="Placeholder"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+        />
+
+        <Button variant="contained">Submit</Button>
+      </div>
     );
   }
 }

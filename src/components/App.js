@@ -41,13 +41,9 @@ export default class App extends React.Component {
             margin: "100px 500px 0 500px",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-            }}
-          >
-            <TimeCreator />
+          <TimeCreator />
 
+          <div style={{ marginLeft: "200px" }}>
             <TodoCreator callBackAddTask={this.callBackAddTask} />
           </div>
 
