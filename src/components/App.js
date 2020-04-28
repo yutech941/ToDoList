@@ -1,6 +1,7 @@
 import React from "react";
 import ButtonAppBar from ".//ButtonAppBar";
 import TodoCreator from "./TodoCreator";
+import TimeCreator from "./TimeCreator";
 import TodoList from "./TodoList";
 
 export default class App extends React.Component {
@@ -40,7 +41,15 @@ export default class App extends React.Component {
             margin: "100px 500px 0 500px",
           }}
         >
-          <TodoCreator callBackAddTask={this.callBackAddTask} />
+          <div
+            style={{
+              display: "flex",
+            }}
+          >
+            <TimeCreator />
+
+            <TodoCreator callBackAddTask={this.callBackAddTask} />
+          </div>
 
           <ButtonAppBar />
 
