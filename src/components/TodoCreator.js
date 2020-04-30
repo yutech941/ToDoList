@@ -37,6 +37,7 @@ export default class TodoCreator extends React.Component {
       this.props.callBackAddTask(val);
     }
   }
+
   render() {
     return (
       <div>
@@ -44,6 +45,7 @@ export default class TodoCreator extends React.Component {
           {/*日付表示*/}
           <TimeCreator />
 
+          {/*タイトル入力フォーム*/}
           <TextField
             id="outlined-basic"
             label="title"
@@ -53,7 +55,7 @@ export default class TodoCreator extends React.Component {
             onKeyUp={this.handleKeyUp}
           />
         </div>
-
+        {/*コンテンツ入力フォーム*/}
         <TextField
           id="outlined-full-width"
           label="Label"
@@ -68,7 +70,9 @@ export default class TodoCreator extends React.Component {
         />
 
         <div style={styles.submitButton}>
-          <Button variant="contained">Submit</Button>
+          <Button variant="contained" type="submit">
+            Submit
+          </Button>
         </div>
       </div>
     );
