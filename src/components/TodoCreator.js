@@ -1,6 +1,17 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import TimeCreator from "./TimeCreator";
+
+const styles = {
+  flexDirection: {
+    display: "flex",
+    flexDirection: "rowReverse",
+  },
+  submitButton: {
+    width: "100%",
+  },
+};
 
 export default class TodoCreator extends React.Component {
   constructor(props) {
@@ -11,35 +22,36 @@ export default class TodoCreator extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleKeyUp = this.handleKeyUp.bind(this);
   }
-
   handleChange(e) {
     this.setState({
       val: e.target.value,
     });
   }
-
   handleKeyUp(e) {
     if (e.keyCode === 13 && e.shiftKey === true) {
       const val = e.target.value;
-
       this.setState({
         val: "",
       });
       this.props.callBackAddTask(val);
     }
   }
-
   render() {
     return (
       <div>
-        <TextField
-          id="outlined-basic"
-          label="title"
-          variant="outlined"
-          value={this.state.val}
-          onChange={this.handleChange}
-          onKeyUp={this.handleKeyUp}
-        />
+        <div style={styles.flexDirection}>
+          {/*日付表示*/}
+          <TimeCreator />
+
+          <TextField
+            id="outlined-basic"
+            label="title"
+            variant="outlined"
+            value={this.state.val}
+            onChange={this.handleChange}
+            onKeyUp={this.handleKeyUp}
+          />
+        </div>
 
         <TextField
           id="outlined-full-width"
@@ -54,7 +66,9 @@ export default class TodoCreator extends React.Component {
           variant="outlined"
         />
 
-        <Button variant="contained">Submit</Button>
+        <div style={styles.submitButton}>
+          <Button variant="contained">Submit</Button>
+        </div>
       </div>
     );
   }
