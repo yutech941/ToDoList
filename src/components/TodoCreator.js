@@ -10,6 +10,7 @@ const styles = {
   },
   submitButton: {
     width: "100%",
+    marginLeft: "360px",
   },
 };
 
