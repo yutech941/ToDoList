@@ -20,22 +20,6 @@ export default class TodoCreator extends React.Component {
     this.state = {
       val: "",
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleKeyUp = this.handleKeyUp.bind(this);
-  }
-  handleChange(e) {
-    this.setState({
-      val: e.target.value,
-    });
-  }
-  handleKeyUp(e) {
-    if (e.keyCode === 13 && e.shiftKey === true) {
-      const val = e.target.value;
-      this.setState({
-        val: "",
-      });
-      this.props.callBackAddTask(val);
-    }
   }
 
   render() {
