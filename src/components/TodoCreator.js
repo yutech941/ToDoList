@@ -39,14 +39,27 @@ export default class TodoCreator extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    const val = {
+      inputVal: {
+        title: this.state.titleVal,
+        content: this.state.contentVal,
+      },
+    };
+
+    this.setState({
+      titleVal: "",
+      contentVal: "",
+    });
+    this.props.callBackAddTask(val);
   }
 
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div style={styles.flexDirection}>
             {/*日付表示*/}
+
             <TimeCreator />
 
             {/*タイトル入力フォーム*/}
@@ -75,11 +88,7 @@ export default class TodoCreator extends React.Component {
           />
 
           <div style={styles.submitButton}>
-            <Button
-              variant="contained"
-              type="submit"
-              onSubmit={this.handleSubmit}
-            >
+            <Button variant="contained" type="submit">
               Submit
             </Button>
           </div>

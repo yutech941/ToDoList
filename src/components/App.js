@@ -10,7 +10,8 @@ export default class App extends React.Component {
       listdata: [
         {
           id: this.createHashId(),
-          text: "sample todo",
+          title: "",
+          content: "",
         },
       ],
     };
@@ -25,8 +26,13 @@ export default class App extends React.Component {
 
   //タスク追加
   callBackAddTask(val) {
+    console.log(val);
     let nextData = this.state.listdata;
-    nextData.push({ id: this.createHashId(), text: val });
+    nextData.push({
+      id: this.createHashId(),
+      title: val.inputVal.title,
+      content: val.inputVal.content,
+    });
     this.setState({
       listdata: nextData,
     });
@@ -45,7 +51,7 @@ export default class App extends React.Component {
           <ButtonAppBar />
 
           {this.state.listdata.map((todo) => (
-            <TodoList key={todo.id} text={todo.text} />
+            <TodoList key={todo.id} title={todo.title} content={todo.content} />
           ))}
         </div>
       </div>
