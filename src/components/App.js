@@ -1,5 +1,4 @@
 import React from "react";
-import ButtonAppBar from ".//ButtonAppBar";
 import TodoCreator from "./TodoCreator";
 import TodoList from "./TodoList";
 
@@ -10,8 +9,8 @@ export default class App extends React.Component {
       listdata: [
         {
           id: this.createHashId(),
-          title: "",
-          content: "",
+          title: "タイトル",
+          content: "内容",
         },
       ],
     };
@@ -47,8 +46,6 @@ export default class App extends React.Component {
           }}
         >
           <TodoCreator callBackAddTask={this.callBackAddTask} />
-
-          <ButtonAppBar />
 
           {this.state.listdata.map((todo) => (
             <TodoList key={todo.id} title={todo.title} content={todo.content} />

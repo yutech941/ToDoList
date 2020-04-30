@@ -1,16 +1,22 @@
 import React from "react";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
+import ButtonAppBar from "./ButtonAppBar";
+const styles = {
+  list: {
+    border: "solid 3px aquamarine",
+    marginTop: "10px",
+  },
+};
 
 export default class TodoList extends React.Component {
   render() {
     const { title, content } = this.props;
 
     return (
-      <List>
-        <ListItem>{title}</ListItem>
-        <ListItem>{content}</ListItem>
-      </List>
+      <div>
+        <ButtonAppBar />
+        <div style={styles.list}>{title}</div>
+        <div style={styles.list}>{content}</div>
+      </div>
     );
   }
 }
