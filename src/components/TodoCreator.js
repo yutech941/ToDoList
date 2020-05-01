@@ -8,6 +8,9 @@ const styles = {
     display: "flex",
     flexDirection: "rowReverse",
   },
+  titleInput: {
+    width: "100%",
+  },
   submitButton: {
     width: "100%",
     marginLeft: "360px",
@@ -20,11 +23,11 @@ export default class TodoCreator extends React.Component {
       <div>
         <div style={styles.flexDirection}>
           {/*日付表示*/}
-
           <TimeCreator />
 
           {/*タイトル入力フォーム*/}
           <TextField
+            style={styles.titleInput}
             label="title"
             variant="outlined"
             value={this.props.titleVal}
