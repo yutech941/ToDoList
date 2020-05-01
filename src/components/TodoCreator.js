@@ -17,24 +17,8 @@ const styles = {
 export default class TodoCreator extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      titleVal: "",
-      contentVal: "",
-    };
-    this.handleChangeTitle = this.handleChangeTitle.bind(this);
-    this.handleChangeContent = this.handleChangeContent.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
 
-  handleChangeTitle(e) {
-    this.setState({
-      titleVal: e.target.value,
-    });
-  }
-  handleChangeContent(e) {
-    this.setState({
-      contentVal: e.target.value,
-    });
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
@@ -64,27 +48,25 @@ export default class TodoCreator extends React.Component {
 
             {/*タイトル入力フォーム*/}
             <TextField
-              id="outlined-basic"
               label="title"
               variant="outlined"
-              value={this.state.titleVal}
-              onChange={this.handleChangeTitle}
+              value={this.props.TitleVal}
+              onChange={this.props.handleChangeTitle}
             />
           </div>
           {/*コンテンツ入力フォーム*/}
           <TextField
-            id="outlined-full-width"
-            label="Label"
+            label="content"
             style={{ margin: 8 }}
-            placeholder="Placeholder"
+            placeholder="something todo"
             fullWidth
             margin="normal"
             InputLabelProps={{
               shrink: true,
             }}
             variant="outlined"
-            value={this.state.contentVal}
-            onChange={this.handleChangeContent}
+            value={this.props.ContentVal}
+            onChange={this.props.handleChangeContent}
           />
 
           <div style={styles.submitButton}>

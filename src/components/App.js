@@ -6,6 +6,7 @@ export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      //リスト表示データ
       listdata: [
         {
           id: this.createHashId(),
@@ -13,9 +14,26 @@ export default class App extends React.Component {
           content: "内容",
         },
       ],
+      //タスク追加データ
+      titleVal: "",
+      contentVal: "",
     };
 
     this.callBackAddTask = this.callBackAddTask.bind(this);
+    this.handleChangeTitle = this.handleChangeTitle.bind(this);
+    this.handleChangeContent = this.handleChangeContent.bind(this);
+  }
+  //タイトルのValue取得
+  handleChangeTitle(e) {
+    this.setState({
+      titleVal: e.target.value,
+    });
+  }
+  //コンテンツのValue取得
+  handleChangeContent(e) {
+    this.setState({
+      contentVal: e.target.value,
+    });
   }
 
   //リストのキー生成
@@ -25,12 +43,11 @@ export default class App extends React.Component {
 
   //タスク追加
   callBackAddTask(val) {
-    console.log(val);
     let nextData = this.state.listdata;
     nextData.push({
       id: this.createHashId(),
-      title: val.inputVal.title,
-      content: val.inputVal.content,
+      title: val.this.state.titileVal,
+      content: val.this.state.contentVal,
     });
     this.setState({
       listdata: nextData,
@@ -45,7 +62,13 @@ export default class App extends React.Component {
             margin: "100px 500px 0 500px",
           }}
         >
-          <TodoCreator callBackAddTask={this.callBackAddTask} />
+          <TodoCreator
+            titleleVal={this.state.titileVal}
+            contentVal={this.state.contentVal}
+            handleChangeTitile={this.handleChangeTitle}
+            handleChangeContent={this.handleChangeContent}
+            callBackAddTask={this.callBackAddTask}
+          />
 
           {this.state.listdata.map((todo) => (
             <TodoList key={todo.id} title={todo.title} content={todo.content} />
