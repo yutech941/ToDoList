@@ -1,6 +1,7 @@
 import React from "react";
 import TodoCreator from "./TodoCreator";
 import TodoList from "./TodoList";
+import moment from "moment/moment";
 
 export default class App extends React.Component {
   constructor() {
@@ -10,11 +11,13 @@ export default class App extends React.Component {
       listdata: [
         {
           id: this.createHashId(),
+          date: "日付",
           title: "タイトル",
           content: "内容",
         },
       ],
       //タスク追加データ
+      dateVal: moment().format("L"),
       titleVal: "",
       contentVal: "",
     };
@@ -23,7 +26,6 @@ export default class App extends React.Component {
     this.handleChangeContent = this.handleChangeContent.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-
   //リストのキー生成
   createHashId() {
     return Math.random().toString(36).slice(-16);
@@ -47,6 +49,7 @@ export default class App extends React.Component {
     let nextData = this.state.listdata;
     nextData.push({
       id: this.createHashId(),
+      date: this.state.dateVal,
       title: this.state.titleVal,
       content: this.state.contentVal,
     });
@@ -66,6 +69,7 @@ export default class App extends React.Component {
           }}
         >
           <TodoCreator
+            dateVal={this.state.dateVal}
             titleVal={this.state.titleVal}
             contentVal={this.state.contentVal}
             handleChangeTitle={this.handleChangeTitle}
@@ -74,7 +78,12 @@ export default class App extends React.Component {
           />
 
           {this.state.listdata.map((todo) => (
-            <TodoList key={todo.id} title={todo.title} content={todo.content} />
+            <TodoList
+              key={todo.id}
+              date={todo.date}
+              title={todo.title}
+              content={todo.content}
+            />
           ))}
         </div>
       </div>

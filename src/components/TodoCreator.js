@@ -22,8 +22,6 @@ const styles = {
   },
 };
 
-let mom = moment();
-
 export default class TodoCreator extends React.Component {
   render() {
     return (
@@ -33,7 +31,7 @@ export default class TodoCreator extends React.Component {
           <TextField
             style={styles.timeInput}
             variant="outlined"
-            value={mom.format("L")}
+            value={this.props.dateVal}
           />
 
           {/*タイトル入力フォーム*/}

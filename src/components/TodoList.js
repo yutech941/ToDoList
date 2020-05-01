@@ -24,13 +24,13 @@ const styles = {
 
 export default class TodoList extends React.Component {
   render() {
-    const { time, title, content } = this.props;
+    const { date, title, content } = this.props;
 
     return (
       <div>
         <ButtonAppBar />
         <div style={styles.flexDirection}>
-          <div style={styles.timeInput}>{time}</div>
+          <div style={styles.timeInput}>{date}</div>
           <div style={styles.titleInput}>{title}</div>
         </div>
         <div style={styles.list}>{content}</div>
