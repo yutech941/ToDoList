@@ -15,66 +15,46 @@ const styles = {
 };
 
 export default class TodoCreator extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    const val = {
-      inputVal: {
-        title: this.state.titleVal,
-        content: this.state.contentVal,
-      },
-    };
-
-    this.setState({
-      titleVal: "",
-      contentVal: "",
-    });
-    this.props.callBackAddTask(val);
-  }
-
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <div style={styles.flexDirection}>
-            {/*日付表示*/}
+        <div style={styles.flexDirection}>
+          {/*日付表示*/}
 
-            <TimeCreator />
+          <TimeCreator />
 
-            {/*タイトル入力フォーム*/}
-            <TextField
-              label="title"
-              variant="outlined"
-              value={this.props.TitleVal}
-              onChange={this.props.handleChangeTitle}
-            />
-          </div>
-          {/*コンテンツ入力フォーム*/}
+          {/*タイトル入力フォーム*/}
           <TextField
-            label="content"
-            style={{ margin: 8 }}
-            placeholder="something todo"
-            fullWidth
-            margin="normal"
-            InputLabelProps={{
-              shrink: true,
-            }}
+            label="title"
             variant="outlined"
-            value={this.props.ContentVal}
-            onChange={this.props.handleChangeContent}
+            value={this.props.titleVal}
+            onChange={this.props.handleChangeTitle}
           />
+        </div>
+        {/*コンテンツ入力フォーム*/}
+        <TextField
+          label="content"
+          style={{ margin: 8 }}
+          placeholder="something todo"
+          fullWidth
+          margin="normal"
+          InputLabelProps={{
+            shrink: true,
+          }}
+          variant="outlined"
+          value={this.props.contentVal}
+          onChange={this.props.handleChangeContent}
+        />
 
-          <div style={styles.submitButton}>
-            <Button variant="contained" type="submit">
-              Submit
-            </Button>
-          </div>
-        </form>
+        <div style={styles.submitButton}>
+          <Button
+            variant="contained"
+            type="button"
+            onClick={this.props.handleClick}
+          >
+            Submit
+          </Button>
+        </div>
       </div>
     );
   }

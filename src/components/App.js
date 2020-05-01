@@ -19,10 +19,16 @@ export default class App extends React.Component {
       contentVal: "",
     };
 
-    this.callBackAddTask = this.callBackAddTask.bind(this);
     this.handleChangeTitle = this.handleChangeTitle.bind(this);
     this.handleChangeContent = this.handleChangeContent.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  //リストのキー生成
+  createHashId() {
+    return Math.random().toString(36).slice(-16);
+  }
+
   //タイトルのValue取得
   handleChangeTitle(e) {
     this.setState({
@@ -36,21 +42,18 @@ export default class App extends React.Component {
     });
   }
 
-  //リストのキー生成
-  createHashId() {
-    return Math.random().toString(36).slice(-16);
-  }
-
-  //タスク追加
-  callBackAddTask(val) {
+  //ボタンクリックでリストにタスク追加
+  handleClick() {
     let nextData = this.state.listdata;
     nextData.push({
       id: this.createHashId(),
-      title: val.this.state.titileVal,
-      content: val.this.state.contentVal,
+      title: this.state.titleVal,
+      content: this.state.contentVal,
     });
     this.setState({
       listdata: nextData,
+      titleVal: "",
+      contentVal: "",
     });
   }
 
@@ -63,11 +66,11 @@ export default class App extends React.Component {
           }}
         >
           <TodoCreator
-            titleleVal={this.state.titileVal}
+            titleVal={this.state.titleVal}
             contentVal={this.state.contentVal}
-            handleChangeTitile={this.handleChangeTitle}
+            handleChangeTitle={this.handleChangeTitle}
             handleChangeContent={this.handleChangeContent}
-            callBackAddTask={this.callBackAddTask}
+            handleClick={this.handleClick}
           />
 
           {this.state.listdata.map((todo) => (
