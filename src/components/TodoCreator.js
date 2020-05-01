@@ -1,7 +1,7 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import TimeCreator from "./TimeCreator";
+import moment from "moment/moment";
 
 const styles = {
   flexDirection: {
@@ -15,7 +15,14 @@ const styles = {
     width: "100%",
     marginLeft: "360px",
   },
+  timeInput: {
+    width: "120px",
+    marginLeft: "10px",
+    marginRight: "10px",
+  },
 };
+
+let mom = moment();
 
 export default class TodoCreator extends React.Component {
   render() {
@@ -23,7 +30,11 @@ export default class TodoCreator extends React.Component {
       <div>
         <div style={styles.flexDirection}>
           {/*日付表示*/}
-          <TimeCreator />
+          <TextField
+            style={styles.timeInput}
+            variant="outlined"
+            value={mom.format("L")}
+          />
 
           {/*タイトル入力フォーム*/}
           <TextField
